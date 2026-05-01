@@ -1,6 +1,3 @@
-**PHASE3.md — Tirage temps réel**
-
-```
 Phase 3 : Tirage temps réel (5 slices)
 
 Sprint 3.1 — Socket.io tirage
@@ -67,4 +64,3 @@ Sprint 3.1 — Socket.io tirage
 - [ ] État finished : écran palmarès, tous les gagnants du gros lot au petit lot, "Aucun gagnant" si winner_id NULL
 - [ ] live.css : fond #0d0d2b, polices 5vw minimum, confettis CSS @keyframes (result + finished), responsive 1920x1080
 - [ ] Animation slot machine : container 120px overflow:hidden, décélération 60ms→800ms sur 5s
-```

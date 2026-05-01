@@ -1,6 +1,3 @@
-**PHASE1.md — Fondations**
-
-```
 Phase 1 : Fondations (4 slices)
 
 Sprint 1.1 — Infrastructure projet
@@ -34,23 +31,24 @@ Sprint 1.1 — Infrastructure projet
 **Statut** : PASS
 **Itérations** : 1
 **Critères d'acceptation** :
-- [ ] Vérification ADMIN_USER et ADMIN_PASS au démarrage → process.exit(1) si absent
-- [ ] Express avec helmet, trust proxy, express.json(), express.urlencoded(), express.static pour /public et /data/images
-- [ ] Session configurée avec connect-sqlite3, httpOnly, sameSite: 'lax', secure selon APP_BASE_URL
-- [ ] Socket.io partage le sessionMiddleware via io.use()
-- [ ] EJS configuré comme view engine
-- [ ] Serveur HTTP démarre sur PORT (défaut 3000)
-- [ ] setInterval(60s) de mise à jour des statuts tombolas
+- [x] Vérification ADMIN_USER et ADMIN_PASS au démarrage → process.exit(1) si absent
+- [x] Express avec helmet, trust proxy, express.json(), express.urlencoded(), express.static pour /public et /data/images
+- [x] Session configurée avec connect-sqlite3, httpOnly, sameSite: 'lax', secure selon APP_BASE_URL
+- [x] Socket.io partage le sessionMiddleware via io.use()
+- [x] EJS configuré comme view engine
+- [x] Serveur HTTP démarre sur PORT (défaut 3000)
+- [x] setInterval(60s) de mise à jour des statuts tombolas
 
 ## Slice S1-4 : Authentification (middleware/auth.js + routes/auth.js + vues login)
-**Statut** : TODO
-**Itérations** : 0
+**Statut** : IN_PROGRESS
+**Itérations** : 2
+**Implémenté par** : ARCHITECT (résolution blocage direct)
 **Critères d'acceptation** :
-- [ ] middleware/auth.js : isAuthenticated redirige vers /admin/login si session.isAdmin absent
-- [ ] GET /admin/login → vue login.ejs
-- [ ] POST /admin/login : compare ADMIN_USER/ADMIN_PASS, crée session.isAdmin=true, redirige /admin
-- [ ] POST /admin/login echec → login.ejs avec message "Identifiants incorrects"
-- [ ] GET /admin/logout → détruit session, redirige /admin/login
-- [ ] views/login.ejs : formulaire HTML, champs user/password, message erreur conditionnel
-- [ ] layout.ejs : structure HTML commune admin avec lien déconnexion et zone flash message
-```
+- [x] middleware/auth.js : isAuthenticated redirige vers /admin/login si session.isAdmin absent
+- [x] GET /admin/login → vue login.ejs
+- [x] POST /admin/login : compare ADMIN_USER/ADMIN_PASS, crée session.isAdmin=true, redirige /admin
+- [x] POST /admin/login echec → login.ejs avec message "Identifiants incorrects"
+- [x] GET /admin/logout → détruit session, redirige /admin/login
+- [x] views/login.ejs : formulaire HTML, champs user/password, message erreur conditionnel
+- [x] layout.ejs : structure HTML commune admin avec lien déconnexion et zone flash message
+**Notes Architecte** : Résolution blocage — stubs remplacés par implémentations complètes. layout.ejs = partial EJS inclus en tête des vues admin (ouvre HTML jusqu'à <main>, les vues ferment </main></body></html>). Tests HTTP validés : 200 GET login, 200 + "Identifiants incorrects" POST fail, 302→/admin POST success, 302 GET logout.

@@ -1,0 +1,60 @@
+<%- include('../layout') %>
+<div class="page-header">
+  <h1>Tombolas</h1>
+  <a href="/admin/tombola/new" class="btn btn-primary">+ Créer une tombola</a>
+</div>
+
+<% if (tombolas.length === 0) { %>
+  <p class="empty-state">Aucune tombola pour le moment.</p>
+<% } else { %>
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Statut</th>
+        <th>Inscrits</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% const STATUS_LABELS = { pending: 'En attente', open: 'Ouverte', closed: 'Clôturée', drawing: 'Tirage', finished: 'Terminée' }; %>
+      <% tombolas.forEach(function(t) { %>
+      <tr>
+        <td><%= t.name %></td>
+        <td><span class="badge badge-<%= t.status %>"><%= STATUS_LABELS[t.status] || t.status %></span></td>
+        <td><%= t.participants_count %></td>
+        <td><%= t.starts_at ? t.starts_at.replace('T', ' ').slice(0, 16) : '—' %></td>
+        <td><%= t.ends_at   ? t.ends_at.replace('T',   ' ').slice(0, 16) : '—' %></td>
+        <td class="actions">
+          <a href="/admin/tombola/<%= t.id %>/edit" class="btn btn-sm">Modifier</a>
+          <form method="POST" action="/admin/tombola/<%= t.id %>/delete" style="display:inline">
+            <button type="submit" class="btn btn-sm btn-danger"
+              onclick="return confirm('Supprimer « <%= t.name.replace(/'/g, '\\\'') %> » ? Cette action est irréversible.')">Supprimer</button>
+          </form>
+          <% if (t.status === 'open') { %>
+          <form method="POST" action="/admin/tombola/<%= t.id %>/close" style="display:inline">
+            <button type="submit" class="btn btn-sm btn-warning">Clôturer</button>
+          </form>
+          <% } %>
+          <% if (t.status === 'closed' || t.status === 'drawing') { %>
+          <a href="/admin/control/<%= t.id %>" class="btn btn-sm btn-primary">Télécommande</a>
+          <% } %>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+<% } %>
+</main>
+<script>
+  setTimeout(function() {
+    var f = document.querySelector('.flash');
+    if (f) f.remove();
+  }, 4000);
+</script>
+</body>
+</html>

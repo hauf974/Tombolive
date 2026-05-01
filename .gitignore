@@ -1,0 +1,35 @@
+# HaufCode — fichiers exclus du suivi git
+# Configurations et secrets HaufCode
+.haufcode/
+.env
+
+# Claude Code CLI — permissions locales
+.claude/
+
+# Logs et métriques HaufCode
+logs/
+haufcode_metrics.csv
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Données runtime (montées par Docker, ne pas versionner)
+data/database.sqlite
+data/sessions.sqlite
+data/images/
+
+# Build
+dist/
+build/
+.next/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~

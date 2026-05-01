@@ -1,6 +1,3 @@
-**TODO.md**
-
-```
 # TODO.md — Tombolive
 
 > Généré par ARCHITECT | 2026-05-01
@@ -11,17 +8,17 @@
 |-------|-----|--------|
 | S1-1 | Setup projet (package.json, structure, .env, Docker) | PASS |
 | S1-2 | Base de données (db/database.js) | PASS |
-| S1-3 | app.js (Express + Socket.io + session + middlewares) | TODO |
-| S1-4 | Authentification (middleware/auth + routes/auth + vues login) | TODO |
+| S1-3 | app.js (Express + Socket.io + session + middlewares) | PASS |
+| S1-4 | Authentification (middleware/auth + routes/auth + vues login) | PASS |
 
 ## Phase 2 — Admin CRUD + Module Public
 
 | Slice | Nom | Statut |
 |-------|-----|--------|
-| S2-1 | Liste tombolas (GET /admin + index.ejs) | TODO |
+| S2-1 | Liste tombolas (GET /admin + index.ejs) | PASS |
 | S2-2 | Création tombola (GET/POST /admin/tombola/new + form.ejs) | TODO |
-| S2-3 | Upload images (Multer + sharp) | TODO |
-| S2-4 | Édition tombola (GET/POST /admin/tombola/:id/edit) | TODO |
+| S2-3 | Upload images (Multer + sharp) | PASS |
+| S2-4 | Édition tombola (GET/POST /admin/tombola/:id/edit) | TODO → dépend S2-2 |
 | S2-5 | Suppression et clôture | TODO |
 | S2-6 | Gestion lots + drag & drop (admin-form.js) | TODO |
 | S2-7 | Inscription publique (GET/POST /tombola/:id + register.ejs) | TODO |
@@ -37,5 +34,4 @@
 | S3-4 | Télécommande admin (control.ejs + control.js) | TODO |
 | S3-5 | Écran live (live.ejs + live.js + live.css) | TODO |
 
-**Total : 17 slices | PASS : 2 | TODO : 15**
-```
+**Total : 17 slices | PASS : 6 | TODO : 11**

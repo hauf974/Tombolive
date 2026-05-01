@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title + ' — Tombolive' : 'Tombolive' %></title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <span class="brand">Tombolive</span>
+    <nav>
+      <a href="/admin">Tombolas</a>
+      <a href="/admin/logout" class="logout">Déconnexion</a>
+    </nav>
+  </header>
+  <% if (typeof flash !== 'undefined' && flash) { %>
+  <div class="flash flash-<%= flash.type || 'info' %>"><%= flash.message || flash %></div>
+  <% } %>
+  <main>

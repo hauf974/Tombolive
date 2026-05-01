@@ -1,0 +1,112 @@
+/* Tombolive Admin — palette violet/gris — sera complété en S2-8 */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: #1f1f2e;
+  color: #fff;
+}
+.admin-header .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: .02em; }
+.admin-header nav a { color: #d1d5db; text-decoration: none; margin-left: 1.25rem; font-size: 0.9rem; }
+.admin-header nav a:hover { color: #fff; }
+.admin-header nav a.logout { color: #f87171; }
+
+/* ── Flash ───────────────────────────────────────────────────────── */
+.flash {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+.flash-success { background: #d1fae5; color: #065f46; }
+.flash-error   { background: #fee2e2; color: #991b1b; }
+.flash-warning { background: #fef3c7; color: #92400e; }
+.flash-info    { background: #dbeafe; color: #1e40af; }
+
+/* ── Main ────────────────────────────────────────────────────────── */
+main { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.page-header h1 { margin: 0; font-size: 1.4rem; }
+
+.empty-state { color: #6b7280; font-style: italic; }
+
+/* ── Table ───────────────────────────────────────────────────────── */
+.table-wrapper { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.table th, .table td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+.table th { background: #f9fafb; font-weight: 600; font-size: 0.85rem; color: #374151; }
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { background: #f9fafb; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+/* ── Badges statuts ──────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge-pending  { background: #e5e7eb; color: #374151; }
+.badge-open     { background: #d1fae5; color: #065f46; }
+.badge-closed   { background: #fef3c7; color: #92400e; }
+.badge-drawing  { background: #dbeafe; color: #1e40af; }
+.badge-finished { background: #ede9fe; color: #5b21b6; }
+
+/* ── Boutons ─────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #111827;
+  transition: background .15s;
+}
+.btn:hover { background: #d1d5db; }
+
+.btn-sm { padding: 0.25rem 0.6rem; font-size: 0.8rem; }
+
+.btn-primary { background: #7c3aed; color: #fff; }
+.btn-primary:hover { background: #6d28d9; }
+
+.btn-danger { background: #dc2626; color: #fff; }
+.btn-danger:hover { background: #b91c1c; }
+
+.btn-warning { background: #d97706; color: #fff; }
+.btn-warning:hover { background: #b45309; }
