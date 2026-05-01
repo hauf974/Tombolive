@@ -96,8 +96,8 @@ router.post('/tombola/new', isAuthenticated, (req, res, next) => {
 **Notes Architecte** : middleware/upload.js est complet et fonctionnel (processAndSaveImage, deleteImage, uploadSingle). Slice promue PASS.
 
 ## Slice S2-4 : Édition tombola (GET/POST /admin/tombola/:id/edit)
-**Statut** : TODO
-**Itérations** : 0
+**Statut** : PASS
+**Itérations** : 1
 **Dépend de** : S2-2 (form.ejs doit exister)
 **Critères d'acceptation** :
 - [ ] GET /admin/tombola/:id/edit → tombola introuvable → redirect /admin avec flash erreur
