@@ -1,0 +1,26 @@
+Timestamp;Phase;Sprint;Role;Agent;Slice;Duree_s;Statut
+2026-05-01T07:47:39;PHASE1;S1;ARCHITECT;claude-code;init-planning;428;PASS
+2026-05-01T08:18:26;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Setup projet (package.json, structure, .env, Docker);5;RUNNING
+2026-05-01T08:18:57;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Setup projet (package.json, structure, .env, Docker);30;BLOCKED
+2026-05-01T08:21:14;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Base de données (db/database.js);1;RUNNING
+2026-05-01T08:21:23;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);8;FAIL
+2026-05-01T08:21:25;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Base de données (db/database.js);1;RUNNING
+2026-05-01T08:21:31;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);6;FAIL
+2026-05-01T08:21:32;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Base de données (db/database.js);0;RUNNING
+2026-05-01T08:21:37;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);5;FAIL
+2026-05-01T08:21:39;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Base de données (db/database.js);1;RUNNING
+2026-05-01T08:21:43;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);4;FAIL
+2026-05-01T08:21:44;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Base de données (db/database.js);1;RUNNING
+2026-05-01T08:21:47;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);3;FAIL
+2026-05-01T08:22:50;PHASE1;S1;ARCHITECT;claude-code;Base de données (db/database.js);63;RESCUE
+2026-05-01T08:22:54;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);3;FAIL
+2026-05-01T08:24:19;PHASE1;S1;ARCHITECT;claude-code;Base de données (db/database.js);85;RESCUE
+2026-05-01T08:24:26;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Base de données (db/database.js);6;BLOCKED
+2026-05-01T08:25:49;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;app.js (Express + Socket.io + session + middlewares);1;RUNNING
+2026-05-01T08:25:54;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;app.js (Express + Socket.io + session + middlewares);5;FAIL
+2026-05-01T08:25:56;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;app.js (Express + Socket.io + session + middlewares);1;RUNNING
+2026-05-01T08:26:01;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;app.js (Express + Socket.io + session + middlewares);5;BLOCKED
+2026-05-01T08:28:27;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;Authentification (middleware/auth.js + routes/auth.js + vues login);1;RUNNING
+2026-05-01T08:28:36;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;Authentification (middleware/auth.js + routes/auth.js + vues login);9;BLOCKED
+2026-05-01T09:03:03;PHASE1;S1;BUILDER;qwen/qwen-2.5-coder-32b-instruct;app.js (Express + Socket.io + session + middlewares);2;RUNNING
+2026-05-01T09:03:13;PHASE1;S1;TESTER;deepseek/deepseek-chat-v3-0324;app.js (Express + Socket.io + session + middlewares);9;PASS

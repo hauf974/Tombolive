@@ -1,0 +1,25 @@
+{
+  "name": "tombolive",
+  "version": "1.0.0",
+  "description": "Application de tombola événementielle en temps réel",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "connect-sqlite3": "^0.9.15",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "helmet": "^7.1.0",
+    "multer": "^1.4.5-lts.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.33.4",
+    "socket.io": "^4.7.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
