@@ -186,8 +186,8 @@ router.post('/tombola/:id/edit', isAuthenticated, (req, res, next) => {
 ```
 
 ## Slice S2-5 : Suppression et clôture (POST /admin/tombola/:id/delete et /close)
-**Statut** : TODO
-**Itérations** : 0
+**Statut** : BLOCKED
+**Itérations** : 2
 **Critères d'acceptation** :
 - [ ] POST /admin/tombola/:id/delete : interdit si statut 'drawing' (flash erreur + redirect /admin)
 - [ ] Suppression image disque si tombola.image_path présent (deleteImage)
@@ -197,8 +197,8 @@ router.post('/tombola/:id/edit', isAuthenticated, (req, res, next) => {
 - [ ] Redirection /admin avec flash succès
 
 ## Slice S2-6 : Gestion lots + drag & drop (public/js/admin-form.js)
-**Statut** : TODO
-**Itérations** : 0
+**Statut** : BLOCKED
+**Itérations** : 2
 **Critères d'acceptation** :
 - [ ] Bouton "+ Ajouter un lot" : ajoute ligne avec champ texte et bouton "×"
 - [ ] Bouton "×" : supprime la ligne
@@ -209,8 +209,8 @@ router.post('/tombola/:id/edit', isAuthenticated, (req, res, next) => {
 - [ ] Validation JS : au moins 1 lot, tous les noms remplis
 
 ## Slice S2-9 : Validation intégration Phase 2
-**Statut** : TODO
-**Itérations** : 0
+**Statut** : PASS
+**Itérations** : 3
 **Critères d'acceptation** :
 - [ ] `node app.js` démarre sans erreur avec les variables .env
 - [ ] `docker-compose up` démarre sans erreur, conteneur accessible sur http://localhost:3000
