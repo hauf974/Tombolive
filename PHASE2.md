@@ -16,8 +16,8 @@ Sprint 2.1 — Administration tombolas
 **Notes Architecte** : GET /admin et index.ejs sont implémentés et fonctionnels (routes/admin.js + views/admin/index.ejs). Les endpoints POST (delete, close) sont couverts par S2-5. Slice promue PASS.
 
 ## Slice S2-2 : Création tombola (GET/POST /admin/tombola/new + form.ejs)
-**Statut** : TODO
-**Itérations** : 0
+**Statut** : PASS
+**Itérations** : 1
 **Critères d'acceptation** :
 - [ ] GET /admin/tombola/new → render('admin/form', { title, tombola: null, lots: [], errors: [], old: {}, flash: null })
 - [ ] POST /admin/tombola/new : validation name (non vide, max 255), starts_at < ends_at, lots[] au moins 1 élément non vide

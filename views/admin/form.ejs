@@ -1,0 +1,113 @@
+<%- include('../layout') %>
+<% const readOnly = tombola && (tombola.status === 'drawing' || tombola.status === 'finished'); %>
+<div class="page-header">
+  <h1><%= title %></h1>
+  <a href="/admin" class="btn btn-secondary">Retour</a>
+</div>
+
+<% if (readOnly) { %>
+<div class="alert alert-warning">
+  Cette tombola est en cours de tirage ou terminée. Les champs nom, dates et lots sont verrouillés. Seule l'image peut être modifiée.
+</div>
+<% } %>
+
+<form action="<%= tombola ? '/admin/tombola/' + tombola.id + '/edit' : '/admin/tombola/new' %>"
+      method="POST"
+      enctype="multipart/form-data"
+      class="form-card">
+
+  <div class="form-group">
+    <label for="name">Nom de la tombola</label>
+    <input type="text"
+           id="name"
+           name="name"
+           maxlength="255"
+           value="<%= (old && old.name !== undefined) ? old.name : (tombola ? tombola.name : '') %>"
+           <%= readOnly ? 'disabled' : '' %>>
+    <% if (errors.includes('name')) { %><span class="error">Le nom est requis (255 caractères max).</span><% } %>
+  </div>
+
+  <div class="form-group">
+    <label for="starts_at">Date de début</label>
+    <input type="datetime-local"
+           id="starts_at"
+           name="starts_at"
+           value="<%= (old && old.starts_at) ? old.starts_at : (tombola && tombola.starts_at ? tombola.starts_at.slice(0,16) : '') %>"
+           <%= readOnly ? 'disabled' : '' %>>
+  </div>
+
+  <div class="form-group">
+    <label for="ends_at">Date de fin</label>
+    <input type="datetime-local"
+           id="ends_at"
+           name="ends_at"
+           value="<%= (old && old.ends_at) ? old.ends_at : (tombola && tombola.ends_at ? tombola.ends_at.slice(0,16) : '') %>"
+           <%= readOnly ? 'disabled' : '' %>>
+    <% if (errors.includes('dates')) { %><span class="error">La date de fin doit être postérieure à la date de début.</span><% } %>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image (JPEG, PNG ou WebP, max 2 Mo)</label>
+    <% if (tombola && tombola.image_path) { %>
+    <div class="current-image">
+      <img src="/data/images/<%= tombola.image_path.replace('images/', '') %>" alt="Image actuelle" style="max-height:120px;">
+      <span>Image actuelle</span>
+    </div>
+    <% } %>
+    <input type="file"
+           id="image"
+           name="image"
+           accept="image/jpeg,image/png,image/webp">
+    <% if (errors.includes('image')) { %><span class="error">Image invalide ou trop volumineuse (max 2 Mo, formats : JPEG, PNG, WebP).</span><% } %>
+  </div>
+
+  <div class="form-group">
+    <label>Lots <small>(le premier = gros lot)</small></label>
+    <div id="lots-container">
+      <% if (lots && lots.length > 0) { %>
+        <% lots.forEach(function(lot) { %>
+        <div class="lot-row" draggable="true">
+          <span class="drag-handle">⠿</span>
+          <input type="text"
+                 name="lots[]"
+                 value="<%= lot.name %>"
+                 placeholder="Nom du lot"
+                 <%= readOnly ? 'disabled' : '' %>>
+          <% if (!readOnly) { %><button type="button" class="btn-remove-lot btn btn-sm btn-danger">×</button><% } %>
+        </div>
+        <% }); %>
+      <% } else { %>
+        <div class="lot-row" draggable="true">
+          <span class="drag-handle">⠿</span>
+          <input type="text" name="lots[]" placeholder="Nom du lot">
+          <button type="button" class="btn-remove-lot btn btn-sm btn-danger">×</button>
+        </div>
+      <% } %>
+    </div>
+    <% if (!readOnly) { %>
+    <button type="button" id="btn-add-lot" class="btn btn-secondary">+ Ajouter un lot</button>
+    <% } %>
+    <% if (errors.includes('lots')) { %><span class="error">Au moins un lot est requis.</span><% } %>
+  </div>
+
+  <% if (tombola && typeof qrCode !== 'undefined' && qrCode) { %>
+  <div class="form-group qr-section">
+    <label>QR code d'inscription</label>
+    <img src="<%= qrCode %>" alt="QR code" style="max-width:180px;display:block;">
+    <a href="<%= appUrl %>" target="_blank" class="app-url"><%= appUrl %></a>
+    <button type="button" class="btn btn-secondary"
+            onclick="navigator.clipboard.writeText('<%= appUrl %>').then(function(){alert('Lien copié !')})">
+      Copier le lien
+    </button>
+  </div>
+  <% } %>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary"><%= tombola ? 'Enregistrer les modifications' : 'Créer la tombola' %></button>
+  </div>
+</form>
+
+</main>
+<script src="/js/admin-form.js"></script>
+</body>
+</html>
