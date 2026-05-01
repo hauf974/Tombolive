@@ -16,8 +16,8 @@ Sprint 2.1 — Administration tombolas
 **Notes Architecte** : GET /admin et index.ejs sont implémentés et fonctionnels (routes/admin.js + views/admin/index.ejs). Les endpoints POST (delete, close) sont couverts par S2-5. Slice promue PASS.
 
 ## Slice S2-2 : Création tombola (GET/POST /admin/tombola/new + form.ejs)
-**Statut** : PASS
-**Itérations** : 1
+**Statut** : TODO
+**Itérations** : 0
 **Critères d'acceptation** :
 - [ ] GET /admin/tombola/new → render('admin/form', { title, tombola: null, lots: [], errors: [], old: {}, flash: null })
 - [ ] POST /admin/tombola/new : validation name (non vide, max 255), starts_at < ends_at, lots[] au moins 1 élément non vide
@@ -96,8 +96,8 @@ router.post('/tombola/new', isAuthenticated, (req, res, next) => {
 **Notes Architecte** : middleware/upload.js est complet et fonctionnel (processAndSaveImage, deleteImage, uploadSingle). Slice promue PASS.
 
 ## Slice S2-4 : Édition tombola (GET/POST /admin/tombola/:id/edit)
-**Statut** : PASS
-**Itérations** : 1
+**Statut** : TODO
+**Itérations** : 0
 **Dépend de** : S2-2 (form.ejs doit exister)
 **Critères d'acceptation** :
 - [ ] GET /admin/tombola/:id/edit → tombola introuvable → redirect /admin avec flash erreur
@@ -208,7 +208,19 @@ router.post('/tombola/:id/edit', isAuthenticated, (req, res, next) => {
 - [ ] À la soumission : positions recalculées (premier affiché = position 1 = gros lot)
 - [ ] Validation JS : au moins 1 lot, tous les noms remplis
 
-Sprint 2.2 — Module public
+## Slice S2-9 : Validation intégration Phase 2
+**Statut** : TODO
+**Itérations** : 0
+**Critères d'acceptation** :
+- [ ] `node app.js` démarre sans erreur avec les variables .env
+- [ ] `docker-compose up` démarre sans erreur, conteneur accessible sur http://localhost:3000
+- [ ] GET /admin/login retourne 200
+- [ ] Connexion admin fonctionne (POST /admin/login avec ADMIN_USER/ADMIN_PASS)
+- [ ] GET /admin retourne 200 après connexion
+- [ ] Création d'une tombola complète (avec image + lots) sans erreur
+- [ ] Upload image fonctionne, fichier .webp présent dans data/images/
+- [ ] Inscription publique fonctionne sur /tombola/:id
+- [ ] Aucune erreur 500 dans les logs sur le parcours nominal
 
 ## Slice S2-7 : Inscription publique (GET/POST /tombola/:id + register.ejs)
 **Statut** : TODO

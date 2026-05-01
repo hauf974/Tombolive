@@ -64,3 +64,16 @@ Sprint 3.1 — Socket.io tirage
 - [ ] État finished : écran palmarès, tous les gagnants du gros lot au petit lot, "Aucun gagnant" si winner_id NULL
 - [ ] live.css : fond #0d0d2b, polices 5vw minimum, confettis CSS @keyframes (result + finished), responsive 1920x1080
 - [ ] Animation slot machine : container 120px overflow:hidden, décélération 60ms→800ms sur 5s
+
+## Slice S3-6 : Validation intégration Phase 3
+**Statut** : TODO
+**Itérations** : 0
+**Critères d'acceptation** :
+- [ ] `docker-compose up` démarre sans erreur
+- [ ] Flux complet : création tombola → inscription participants → clôture → lancement tirage
+- [ ] Socket.io : écran live et télécommande se connectent et reçoivent les événements
+- [ ] Tirage complet d'un lot : spinning → résultat → validation → lot suivant
+- [ ] Cas absent : markAbsent relance le tirage immédiatement
+- [ ] Fin de tirage : tous les lots tirés, écran palmarès visible, statut tombola = 'finished'
+- [ ] RGPD respecté : téléphone absent du broadcast drawResult (présent uniquement dans drawResultFull)
+- [ ] Reconnexion Socket.io : client qui se reconnecte retrouve l'état correct

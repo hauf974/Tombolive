@@ -23,6 +23,7 @@
 | S2-6 | Gestion lots + drag & drop (admin-form.js) | TODO |
 | S2-7 | Inscription publique (GET/POST /tombola/:id + register.ejs) | TODO |
 | S2-8 | Compte à rebours + CSS public | TODO |
+| S2-9 | Validation intégration Phase 2 | TODO |
 
 ## Phase 3 — Tirage temps réel
 
@@ -33,5 +34,6 @@
 | S3-3 | Validation et fin (validateWinner + markAbsent + drawFinished) | TODO |
 | S3-4 | Télécommande admin (control.ejs + control.js) | TODO |
 | S3-5 | Écran live (live.ejs + live.js + live.css) | TODO |
+| S3-6 | Validation intégration Phase 3 | TODO |
 
-**Total : 17 slices | PASS : 6 | TODO : 11**
+**Total : 19 slices | PASS : 6 | TODO : 13**
